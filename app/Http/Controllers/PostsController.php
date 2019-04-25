@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Requests\PostsRequest;
+use App\Http\Requests\PostsRequest;
 use App\Post;
 
 class PostsController extends Controller
@@ -30,7 +30,7 @@ class PostsController extends Controller
     {
         $inputs = $request->all();
         $this->post->create($inputs);
-        return redirect()->to('top');
+        return redirect()->to('/');
     }
 
 }
