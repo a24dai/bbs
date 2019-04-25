@@ -21,5 +21,17 @@ class PostsController extends Controller
         return view('posts.index', compact('posts'));
     }
 
+    public function create()
+    {
+        return view('posts.create');
+    }
+
+    public function store(Request $request)
+    {
+        $inputs = $request->all();
+        $this->post->create($inputs);
+        return redirect()->to('top');
+    }
+
 }
 
