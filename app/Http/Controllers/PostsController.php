@@ -33,5 +33,11 @@ class PostsController extends Controller
         return redirect()->to('/');
     }
 
+    public function show($post_id)
+    {
+        $post = $this->post->find($post_id);
+        return view('posts.show', compact('post'));
+    }
+
 }
 
