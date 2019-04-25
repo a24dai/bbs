@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Requests\PostsRequest;
 use App\Post;
 
 class PostsController extends Controller
@@ -26,7 +26,7 @@ class PostsController extends Controller
         return view('posts.create');
     }
 
-    public function store(Request $request)
+    public function store(PostsRequest $request)
     {
         $inputs = $request->all();
         $this->post->create($inputs);
