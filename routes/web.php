@@ -13,6 +13,6 @@
 
 Route::get('/', 'PostsController@index')->name('top');
 
-Route::resource('posts', PostsController::class, ['only' => ['create', 'store', 'show', 'edit', 'update']]);
+Route::resource('posts', PostsController::class, ['except' => ['index']]);
 Route::resource('comments', CommentsController::class, ['only' => ['store']]);
 

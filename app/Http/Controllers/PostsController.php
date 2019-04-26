@@ -53,5 +53,11 @@ class PostsController extends Controller
         return redirect()->route('posts.show', compact('post'));
     }
 
+    public function destroy($post_id)
+    {
+        $this->post->find($post_id)->delete();
+        return redirect()->route('top');
+    }
+
 }
 
