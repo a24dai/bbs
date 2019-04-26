@@ -28,5 +28,16 @@ class PostsRequest extends FormRequest
             'body'  => 'required|max:2000',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            'title.required' => 'タイトルは入力必須の項目です。',
+            'title.max'      => '50文字以下で入力してください。',
+            'body.required'  => '本文は入力必須の項目です。',
+            'body.max'       => '2000文字以下で入力してください。',
+        ];
+    }
+
 }
 
