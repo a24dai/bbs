@@ -5,7 +5,7 @@
   <div class="border p-4">
     <h1 class="h5 mb-4">投稿の編集</h1>
 
-    <form method="POST" action="{{ route('posts.update', ['post' => $post]) }}">
+    <form method="POST" action="{{ route('posts.update', $post->id) }}">
       @csrf
       @method('PUT')
 
@@ -38,7 +38,7 @@
         </div>
 
         <div class="mt-5">
-            <a class="btn btn-secondary" href="{{ route('posts.show', ['post' => $post]) }}">
+            <a class="btn btn-secondary" href="{{ route('posts.show', $post->id) }}">
               キャンセル
             </a>
             <button type="submit" class="btn btn-primary">更新する</button>

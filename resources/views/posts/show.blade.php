@@ -5,10 +5,10 @@
   <div class="border p-4">
 
     <div class="mb-4 text-right">
-      <a class="btn btn-primary" href="{{ route('posts.edit', ['post' => $post]) }}">
+      <a class="btn btn-primary" href="{{ route('posts.edit', $post->id) }}">
         編集する
       </a>
-      <form style="display: inline-block;" method="POST" action="{{ route('posts.destroy', ['post' => $post]) }}">
+      <form style="display: inline-block;" method="POST" action="{{ route('posts.destroy', $post->id) }}">
         @csrf
         @method('DELETE')
       

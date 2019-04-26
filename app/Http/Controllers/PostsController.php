@@ -47,9 +47,8 @@ class PostsController extends Controller
     public function update(PostsRequest $request, $post_id)
     {
         $inputs = $request->all();
-        $post = $this->post->find($post_id);
-        $post->fill($inputs)->save();
-        return redirect()->route('posts.show', compact('post'));
+        $this->post->find($post_id)->fill($inputs)->save();
+        return redirect()->route('posts.show', $post_id);
     }
 
     public function destroy($post_id)

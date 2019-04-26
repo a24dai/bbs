@@ -17,9 +17,8 @@ class CommentsController extends Controller
     public function store(CommentsRequest $request)
     {
         $inputs = $request->all();
-        $post = $this->post->find($inputs['post_id']);
-        $post->comments()->create($inputs);
-        return redirect()->route('posts.show', compact('post'));
+        $this->post->find($inputs['post_id'])->comments()->create($inputs);
+        return redirect()->route('posts.show', $inputs['post_id']);
     }
 
 }

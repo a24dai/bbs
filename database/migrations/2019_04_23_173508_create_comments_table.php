@@ -19,7 +19,6 @@ class CreateCommentsTable extends Migration
             $table->text('body');
             $table->timestamps();
 
-            // 外部キー制約は採用検討の必要性あり
             $table->foreign('post_id')
                   ->references('id')
                   ->on('posts')
