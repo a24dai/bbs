@@ -17,7 +17,7 @@ class PostsController extends Controller
 
     public function index()
     {
-        $posts = $this->post->orderBy('created_at', 'desc')->get();
+        $posts = $this->post->orderBy('created_at', 'desc')->paginate(10);
         return view('posts.index', compact('posts'));
     }
 
