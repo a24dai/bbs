@@ -7,9 +7,7 @@ use App\Post;
 
 class Comment extends Model
 {
-    protected $fillable = [
-        'body',
-    ];
+    protected $fillable = ['body'];
 
     public function post()
     {

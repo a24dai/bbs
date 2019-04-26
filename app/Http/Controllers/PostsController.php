@@ -7,7 +7,6 @@ use App\Post;
 
 class PostsController extends Controller
 {
-
     private $post;
 
     public function __construct(Post $post)
@@ -30,7 +29,7 @@ class PostsController extends Controller
     {
         $inputs = $request->all();
         $this->post->create($inputs);
-        return redirect()->to('/');
+        return redirect()->route('top');
     }
 
     public function show($post_id)
