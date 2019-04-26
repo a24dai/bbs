@@ -3,28 +3,35 @@
 
 <div class="container mt-4">
   <div class="border p-4">
+
+    <div class="mb-4 text-right">
+      <a class="btn btn-primary" href="{{ route('posts.edit', ['post' => $post]) }}">
+        編集する
+      </a>
+    </div>
+
     <h1 class="h5 mb-4">{{ $post->title }}</h1>
-    <p class="mb-5">
-      {!! nl2br(e($post->body)) !!}
-    </p>
+    <p class="mb-5">{!! nl2br(e($post->body)) !!}</p>
+
     <section>
-        <h2 class="h5 mb-4">コメント</h2>
-        @forelse ($post->comments as $comment)
-          <div class="border-top p-4">
-              <time class="text-secondary">
-                  {{ $comment->created_at->format('Y/m/d H:i') }}
-              </time>
-              <p class="mt-2">
-                  {!! nl2br(e($comment->body)) !!}
-              </p>
-          </div>
-        @empty
-            <p>コメントはまだありません。</p>
-        @endforelse
+      <h2 class="h5 mb-4">コメント</h2>
+      @forelse ($post->comments as $comment)
+        <div class="border-top p-4">
+          <time class="text-secondary">
+            {{ $comment->created_at->format('Y/m/d H:i') }}
+          </time>
+          <p class="mt-2">
+            {!! nl2br(e($comment->body)) !!}
+          </p>
+        </div>
+      @empty
+        <p>コメントはまだありません。</p>
+      @endforelse
     </section>
 
     <form class="mb-4" method="POST" action="{{ route('comments.store') }}">
       @csrf
+
       <input
         name="post_id"
         type="hidden"

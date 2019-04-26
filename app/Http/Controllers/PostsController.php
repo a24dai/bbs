@@ -39,5 +39,19 @@ class PostsController extends Controller
         return view('posts.show', compact('post'));
     }
 
+    public function edit($post_id)
+    {
+        $post = $this->post->find($post_id);
+        return view('posts.edit', compact('post'));
+    }
+
+    public function update(PostsRequest $request, $post_id)
+    {
+        $inputs = $request->all();
+        $post = $this->post->find($post_id);
+        $post->fill($inputs)->save();
+        return redirect()->route('posts.show', compact('post'));
+    }
+
 }
 
